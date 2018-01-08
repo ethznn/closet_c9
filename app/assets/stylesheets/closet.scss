@@ -1,3 +1,78 @@
 // Place all the styles related to the closet controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the closet controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// index page css
+.index img {
+    display: block;
+}
+.index {
+    text-align: center;
+    background: white;
+}
+.index div{
+    margin: 0px;
+    padding: 0px;
+}
+.index_logo{
+    margin: auto auto;
+    padding-top:  10vh;
+}
+.index_text{
+    margin: 5vh auto;
+    width: 250px;
+}
+.index_button{
+    margin-top: 5vh;
+    color: black;
+    font-weight: bold;
+    width: 100px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-color: black;
+}
+.index_button:hover {
+    background-color: black;
+    color: white;
+}
+.index_button:focus {
+    background-color: black;
+    color: white;
+}
+.index_button:visited {
+    background-color: white;
+    color: black;
+}
+.index_button:active {
+    background-color: white;
+    color: black;
+}
+// index page scss 끝
+
+
+// navbar 관련
+.navbar-brand {
+    padding : 0px;
+}
+div.navbar-collapse{
+    justify-content: flex-end;
+}
+
+
+// calendar page
+section.calendar_page.container{
+  padding-right: 0px;
+  padding-left: 0px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+// modal 관련
+.modal-title-date{
+  font-size: 0.8rem;
+  display: flex;
+}
