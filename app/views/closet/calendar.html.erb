@@ -1,12 +1,6 @@
-<%= content_tag :section, class: "index" do %>
-  <%= content_tag :div, class: "col-lg-12" do %>
-    <!-- main icon logo image -->
-    <%= image_tag("closet_main_image.png", class: "img-responsive index_logo", alt: "main logo") %>
-    <%= content_tag :div, class: "intro-text" do %>
-      <!-- main text logo image -->
-      <%= image_tag("closet_index_text", class: "img-responsive center-block index_text", alt: "index test") %>
-    <% end %>
-    <!-- index start button -->
-    <%= link_to "START", calendar_path, :method => "get", class: "btn btn-light index_button" %>
+<%= content_tag :section, class: "calendar_page container" do %>
+  <!--  calender render -->
+  <%= month_calendar do |date| %>
+    <%= date.day %>
   <% end %>
 <% end %>

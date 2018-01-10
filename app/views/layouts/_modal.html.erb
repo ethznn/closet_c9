@@ -1,0 +1,48 @@
+<!-- Modal -->
+
+<!--  데이터 존재 시에 보여주기 -->
+
+
+<!--  입력 form -->
+<%= form_for(Record.new, url: enrollment_path, html: {method: :post}) do |record| %>
+  <%= content_tag(:div, class: "modal fade", role: "dialog", id: "#{@date_id}", tabindex: "-1", :aria =>{:labelledby=>"exampleModalLabel",:hidden=>"true"}) do %>
+    <%= content_tag(:div, class: "modal-dialog", role: "document") do %>
+      <%= content_tag(:div, class:"modal-content") do %>
+        <%= content_tag(:div, class:"modal-header") do %>
+          <%= content_tag(:h5, class:"modal-title", id: "exampleModalLabel") do %>
+            <%= image_tag("closet_main_image.png", class: "d-inline-block align-top", width: "30", height: "30") %>
+            <%= content_tag :span, class: "navbar-brand mb-0 h1"  do %>
+              c?oset
+            <% end %>
+            <%= content_tag(:span, class: "modal-title-date") do %>
+              <%= @day.strftime("%y년 %m월 %d일") %>
+            <% end %>
+          <% end %>
+          <%= button_tag(type: 'button', class: "close", :data => {dismiss: "modal"}, :aria => {label: "Close"}) do %>
+            <%= content_tag(:span, :aria => {hidden: "true"}) do %>
+              &times;
+            <% end %>
+          <% end %>
+        <% end %>
+        <%= record.hidden_field :written_date, name: :written_date, value: "#{@date_id}" %>
+        <div class="modal-body">
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">memo</label>
+              <%= content_tag :textarea, name: "memo", class: "form-control", id:"recipient-name"  do %>
+              <% end %>
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">공란</label>
+            </div>
+        </div>
+        <%= content_tag(:div, class:"modal-footer") do %>
+          <%= button_tag(type: 'button', class: "btn btn-secondary", :data => {dismiss: "modal"}) do %>
+            Close
+          <% end %>
+          <%= record.submit 'SAVE', class: "btn btn-default" %>
+          <button type="button" class="btn btn-primary">Send message</button>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
