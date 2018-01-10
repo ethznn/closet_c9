@@ -31,6 +31,7 @@ Design
 
 ### PAGE
 
-> -	INDEX => 최대한 심플하게
-> -	SAVE => form_tag
-> -	SHOW => 달력 화면 칸 누르면 정보가 modal 창으로
+> - 모바일 최적화
+> -	INDEX => 최대한 심플하게 
+> -	calendar => 달력 화면 칸 누르면 정보가 modal 창으로
+> -	community =? 자신의 달력화면 정보 공유 / 오픈 커뮤니티
