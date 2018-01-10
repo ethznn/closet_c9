@@ -25,28 +25,39 @@
           <% end %>
         <% end %>
         <%= record.hidden_field :written_date, name: :written_date, value: "#{@date_id}" %>
-        <div class="modal-body">
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">saved records</label>
-              <%= content_tag(:p) do %>
-                <% @cal_record2 =  @cal_record.where(written_date: @date_id)%>
-                <% @cal_record2.each do |data| %>
-                  메모 내용 <%= data.memo %>
-                  작성 시간 <%= data.created_at%>
+        <%= content_tag(:div, class:"modal-body") do %>
+            <%= content_tag(:div, class:"form-group row") do %>
+              <%= content_tag(:label, for: "messgae-text", class:"col-form-label col-12") do %>
+                saved records
+              <% end %>
+              <% @cal_record2 =  @cal_record.where(written_date: @date_id)%>
+              <% @cal_record2.each do |data| %>
+                <%= content_tag(:span, class:"col-7 mo_span1") do %>
+                  <%= data.memo %>
+                <% end %>
+                <%= content_tag(:span, class:"col-3 mo_span2") do %>
+                  <%= data.created_at.strftime("%H시 %M분") %>
+                <% end %>
+                <%= content_tag(:span, class:"col-1 mo_span2") do %>
+                  E             
+                <% end %>
+                <%= content_tag(:span, class:"col-1 mo_span3") do %>
+                  D
                 <% end %>
               <% end %>
-            </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">memo</label>
+            <% end %>
+            <%= content_tag(:div, class:"form-group") do %>
+              <%= content_tag(:label, for: "recipient-name", class:"col-form-label") do %>
+                memo
+              <% end %>
               <%= content_tag :textarea, name: "memo", class: "form-control", id:"recipient-name"  do %>
               <% end %>
-            </div>
-        </div>
+            <% end %>
+        <% end %>
         <%= content_tag(:div, class:"modal-footer") do %>
-          <%= button_tag(type: 'button', class: "btn btn-default", :data => {dismiss: "modal"}) do %>
+          <%= button_tag(type: 'button', class: "btn btn-secondary", :data => {dismiss: "modal"}) do %>
             ClOSE
           <% end %>
-          <%= record.submit 'EDIT', class: "btn btn-secondary" %>
           <%= record.submit 'ADD', class: "btn btn-primary" %>
         <% end %>
       <% end %>
