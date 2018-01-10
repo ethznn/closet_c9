@@ -1,0 +1,28 @@
+<!-- navbar code -->
+<%= content_tag :div, class: "container" do %>
+  <%= content_tag :nav, class: "navbar  navbar-expand-lg navbar-light", style: "background-color: #FFF" do %>
+    <!--  navbar brand name part -->
+    <%= content_tag :a, class: "navbar-brand", href: root_path do %>
+      <%= image_tag("closet_main_image.png", class: "d-inline-block align-top", width: "30", height: "30") %>
+      <%= content_tag :span, class: "navbar-brand mb-0 h1"  do %>
+        c?oset
+      <% end %>
+    <% end %>
+    <!-- navbar button -->
+    <%= content_tag :button, type: "button", class: "navbar-toggler", :data =>{:toggle=>"collapse",:target=>"#navbarNavAltMarkup"}, :aria=>{:controls=> "#navbarNavAltMarkup", :expanded=>"false", :label=>"Toggle navigation"} do %>
+      <%= content_tag :span, nil , class: "navbar-inverse navbar-toggler-icon" %>
+    <% end %>
+    <%= content_tag :div, class: "collapse navbar-collapse", id: "navbarNavAltMarkup" do %>
+      <%= content_tag :ul, class: "nav navbar-nav", id: "navbarNavAltMarkup" do %>
+        <!-- navbar list 목록  -->
+        <%= content_tag(:li, link_to("calendar", calendar_path, id: "navbar_list", :method => "get", class: "nav-item nav-link")) %>
+        <%= content_tag(:li, link_to("community", calendar_path, id: "navbar_list", :method => "get", class: "nav-item nav-link")) %>
+        <% if user_signed_in? #로그인을 했으면? %>
+          <%= content_tag(:li, link_to("log out", destroy_user_session_path, method: :delete, id:"navbar_list", class: "nav-item nav-link")) %>
+        <% else #로그인을 안했으면 %>
+          <%= content_tag(:li, link_to("log in", new_user_session_path, id:"navbar_list", class: "nav-item nav-link")) %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
