@@ -27,20 +27,27 @@
         <%= record.hidden_field :written_date, name: :written_date, value: "#{@date_id}" %>
         <div class="modal-body">
             <div class="form-group">
+              <label for="message-text" class="col-form-label">saved records</label>
+              <%= content_tag(:p) do %>
+                <% @cal_record2 =  @cal_record.where(written_date: @date_id)%>
+                <% @cal_record2.each do |data| %>
+                  메모 내용 <%= data.memo %>
+                  작성 시간 <%= data.created_at%>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="form-group">
               <label for="recipient-name" class="col-form-label">memo</label>
               <%= content_tag :textarea, name: "memo", class: "form-control", id:"recipient-name"  do %>
               <% end %>
             </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">공란</label>
-            </div>
         </div>
         <%= content_tag(:div, class:"modal-footer") do %>
-          <%= button_tag(type: 'button', class: "btn btn-secondary", :data => {dismiss: "modal"}) do %>
-            Close
+          <%= button_tag(type: 'button', class: "btn btn-default", :data => {dismiss: "modal"}) do %>
+            ClOSE
           <% end %>
-          <%= record.submit 'SAVE', class: "btn btn-default" %>
-          <button type="button" class="btn btn-primary">Send message</button>
+          <%= record.submit 'EDIT', class: "btn btn-secondary" %>
+          <%= record.submit 'ADD', class: "btn btn-primary" %>
         <% end %>
       <% end %>
     <% end %>
