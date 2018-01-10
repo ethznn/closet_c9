@@ -9,6 +9,8 @@ end
 gem "simple_calendar", "~> 2.0"
 # devise gem
 gem 'devise'
+# devise gem bootstrapped
+gem 'devise-bootstrap-views'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
