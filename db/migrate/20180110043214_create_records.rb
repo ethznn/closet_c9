@@ -4,8 +4,9 @@ class CreateRecords < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.string :memo
       t.string :image_url
-      t.string :written_date
-
+      t.string :date_id
+      t.datetime :date_data
+      
       t.timestamps
     end
   end

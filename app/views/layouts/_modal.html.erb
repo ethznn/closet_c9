@@ -24,19 +24,20 @@
             <% end %>
           <% end %>
         <% end %>
-        <%= record.hidden_field :written_date, name: :written_date, value: "#{@date_id}" %>
+        <%= record.hidden_field :date_data, name: :date_data, value: @day %>
+        <%= record.hidden_field :date_id, name: :date_id, value: @date_id %>
         <%= content_tag(:div, class:"modal-body") do %>
             <%= content_tag(:div, class:"form-group row") do %>
               <%= content_tag(:label, for: "messgae-text", class:"col-form-label col-12") do %>
                 saved records
               <% end %>
-              <% @cal_record2 =  @cal_record.where(written_date: @date_id)%>
+              <% @cal_record2 =  @cal_record.where(date_id: @date_id)%>
               <% @cal_record2.each do |data| %>
                 <%= content_tag(:span, class:"col-7 mo_span1") do %>
-                  <%= data.memo %>
+                  <%= data.memo %> 
                 <% end %>
                 <%= content_tag(:span, class:"col-3 mo_span2") do %>
-                  <%= data.created_at.strftime("%H시 %M분") %>
+                  <%= data.updated_at.strftime("%m/%d %H:%M") %>
                 <% end %>
                 <%= content_tag(:span, class:"col-1 mo_span2") do %>
                   E             
