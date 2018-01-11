@@ -17,9 +17,10 @@ class ClosetController < ApplicationController
 
   def enrollment
     @record = Record.new
-    @record.memo = params[:memo]
-    @record.written_date = params[:written_date]
     @record.user_id = current_user.id
+    @record.memo = params[:memo]
+    @record.date_id = params[:date_id]
+    @record.date_data = params[:date_data]
     @record.save
 
     redirect_to "/calendar"

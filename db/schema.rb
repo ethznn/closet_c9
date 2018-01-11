@@ -16,7 +16,8 @@ ActiveRecord::Schema.define(version: 20180110043214) do
     t.integer "user_id"
     t.string "memo"
     t.string "image_url"
-    t.string "written_date"
+    t.string "date_id"
+    t.datetime "date_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
