@@ -19,6 +19,8 @@
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
+            
+            <!-- 각 day 마다 id 값 부여 -->
             <% @day = day %>
             <% @date_id = day.strftime("%y%m%d") %>
             <%= content_tag :td, onClick: "location.href='#'", :class => calendar.td_classes_for(day), :data =>{:toggle=>"modal",:target=>"##{@date_id}"} do %>
@@ -28,6 +30,7 @@
                 <% block.call day, sorted_events.fetch(day, []) %>
               <% end %>
             <% end %>
+            
             <!-- modal 창 render -->
             <%= render 'layouts/modal' %>
           <% end %>

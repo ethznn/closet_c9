@@ -11,8 +11,8 @@ class ClosetController < ApplicationController
   end
 
   def calendar
-    # DB record 값에서 user_id, written_date 갑서에 따라서 배열에 저장
-    @cal_record = Record.where(user_id: current_user.id)
+    # DB record 값에서 currnet_user 의 record 값만 불러오기    
+    @user_record = Record.where(user_id: current_user.id)
   end
 
   def enrollment
