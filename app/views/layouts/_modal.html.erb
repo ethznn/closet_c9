@@ -31,8 +31,8 @@
             <%= content_tag(:label, for: "messgae-text", class:"col-form-label col-12") do %>
               saved records
             <% end %>
-            <% @user_record_data =  @user_record.where(date_id: @date_id)%>
-            <% @user_record_data.each do |data| %>
+            <% @cal_record2 =  @cal_record.where(date_id: @date_id)%>
+            <% @cal_record2.each do |data| %>
               <%= content_tag(:span, class:"col-7 mo_span1") do %>
                 <%= data.memo %> 
               <% end %>
@@ -47,7 +47,6 @@
               <%= content_tag(:span, class:"col-1 mo_span3") do %>
                 D
               <% end %>
-              
             <% end %>
           <% end %>
           
@@ -58,9 +57,7 @@
             <% end %>
             <%= content_tag :textarea, name: "memo", class: "form-control", id:"recipient-name"  do %>
             <% end %>
-            <%= record.file_field :image %>
           <% end %>
-          
           
           <!--모달창에 업로드된 이미지 불러오기 -->
           <%= content_tag(:div, class:"form-group row") do %>
@@ -68,13 +65,12 @@
               photos
             <% end %>
               <% modal_image_count = 1 %>
-            <% @user_record_data.each do |data| %>
+            <% @cal_record2.each do |data| %>
               <% modal_image_css = modal_image_count % 3 %>
               <%= image_tag("#{data.image_url}", class: "col-4 modal_image#{modal_image_css}", alt: "index test") %>
               <% modal_image_count = modal_image_count + 1 %>
             <% end %>
           <% end %>
-          
         <% end %>
         <%= content_tag(:div, class:"modal-footer") do %>
           
@@ -83,7 +79,6 @@
             ClOSE
           <% end %>
           <%= record.submit 'ADD', class: "btn btn-primary" %>
-          
         <% end %>
       <% end %>
     <% end %>
