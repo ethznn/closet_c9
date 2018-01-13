@@ -11,11 +11,10 @@ class ClosetController < ApplicationController
   end
 
   def calendar
-    # DB record 값에서 currnet_user 의 record 값만 불러오기
-    @user_record = Record.where(user_id: current_user.id)
+    # DB record 값에서 user_id, written_date 갑서에 따라서 배열에 저장
+    @cal_record = Record.where(user_id: current_user.id)
   end
-  
-  #modal form_for add 관련 controller
+
   def enrollment
     @record = Record.new
     @record.user_id = current_user.id
@@ -24,6 +23,6 @@ class ClosetController < ApplicationController
     @record.date_data = params[:date_data]
     @record.save
 
-    redirect_to "/#"
+    redirect_to "/calendar"
   end
 end
