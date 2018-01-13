@@ -11,10 +11,6 @@ gem "simple_calendar", "~> 2.0"
 gem 'devise'
 # devise gem bootstrapped
 gem 'devise-bootstrap-views'
-# AWS S3 업로드 위한 gem files
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-gem 'mini_magick'
-gem 'fog-aws'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
