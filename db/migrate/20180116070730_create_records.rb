@@ -6,7 +6,8 @@ class CreateRecords < ActiveRecord::Migration[5.1]
       t.string :image
       t.string :date_id
       t.datetime :date_data
-      
+      t.belongs_to :user, foreign_key: true
+
       t.timestamps
     end
   end
