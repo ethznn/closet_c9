@@ -42,7 +42,7 @@ class RecordsController < ApplicationController
   def update
     respond_to do |format|
       if @record.update(record_params)
-        format.html { redirect_to @record, notice: 'Record was successfully updated.' }
+        format.html { redirect_to "/", notice: 'Record was successfully updated.' }
         format.json { render :show, status: :ok, location: @record }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class RecordsController < ApplicationController
   def destroy
     @record.destroy
     respond_to do |format|
-      format.html { redirect_to records_url, notice: 'Record was successfully destroyed.' }
+      format.html { redirect_to "/", notice: 'Record was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
