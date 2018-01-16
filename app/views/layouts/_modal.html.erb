@@ -43,10 +43,10 @@
               
               <!--수정/삭제 버튼 예정-->
               <%= content_tag(:span, class:"col-1 mo_span2") do %>
-                E             
+                <%= link_to 'E', "/records/#{data.id}/edit" %>           
               <% end %>
               <%= content_tag(:span, class:"col-1 mo_span3") do %>
-                D
+                <%= link_to 'D', "/records/#{data.id}", method: :delete, data: { confirm: 'Are you sure?' } %>     
               <% end %>
             <% end %>
           <% end %>
