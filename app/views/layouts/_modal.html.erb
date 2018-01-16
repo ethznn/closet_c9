@@ -2,7 +2,7 @@
 
 <!--  데이터 존재 시에 보여주기 -->
 
-<%= form_for(Record.new, url: enrollment_path, html: {method: :post}) do |record| %>
+<%= form_for(Record.new, url: enrollment_path, html: {multipart: true}) do |record| %>
   <%= content_tag(:div, class: "modal fade", role: "dialog", id: "#{@date_id}", tabindex: "-1", :aria =>{:labelledby=>"exampleModalLabel",:hidden=>"true"}) do %>
     <%= content_tag(:div, class: "modal-dialog", role: "document") do %>
       <%= content_tag(:div, class:"modal-content") do %>
@@ -22,8 +22,9 @@
             <% end %>
           <% end %>
         <% end %>
-        <%= record.hidden_field :date_data, name: :date_data, value: @day %>
-        <%= record.hidden_field :date_id, name: :date_id, value: @date_id %>
+        <%= record.hidden_field :date_data, name: "record[date_data]", value: @day %>
+        <%= record.hidden_field :date_id, name: "record[date_id]", value: @date_id %>
+        <%= record.hidden_field :user_id, value: current_user.id %>
         <%= content_tag(:div, class:"modal-body") do %>
           
           <!-- record 메모 내용 불러오기 -->
@@ -55,7 +56,7 @@
             <%= content_tag(:label, for: "recipient-name", class:"col-form-label") do %>
               memo
             <% end %>
-            <%= content_tag :textarea, name: "memo", class: "form-control", id:"recipient-name"  do %>
+            <%= content_tag :textarea, name: "record[memo]", class: "form-control", id:"recipient-name"  do %>
             <% end %>
             <%= record.file_field :image %>
           <% end %>
@@ -68,7 +69,7 @@
               <% modal_image_count = 1 %>
             <% @user_record_data.each do |data| %>
               <% modal_image_css = modal_image_count % 3 %>
-              <%= image_tag("#{data.image}", class: "col-4 modal_image#{modal_image_css}", alt: "index test") %>
+              <%= image_tag(data.image.url, class: "col-4 modal_image#{modal_image_css}", alt: "index test") %>
               <% modal_image_count = modal_image_count + 1 %>
             <% end %>
           <% end %>
