@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :record_user_id %>
+    <% form.label :user_id %>
+    <% form.number_field :user_id, id: :record_user_id %>
   </div>
 
   <div class="field">
@@ -23,22 +23,22 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_field :image, id: :record_image %>
+    <%= form.file_field :image, id: :record_image %>
   </div>
 
   <div class="field">
-    <%= form.label :date_id %>
-    <%= form.text_field :date_id, id: :record_date_id %>
+    <% form.label :date_id %>
+    <% form.text_field :date_id, id: :record_date_id %>
   </div>
 
   <div class="field">
-    <%= form.label :date_data %>
-    <%= form.datetime_select :date_data, id: :record_date_data %>
+    <% form.label :date_data %>
+    <% form.datetime_select :date_data, id: :record_date_data %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :record_user_id %>
+    <% form.label :user_id %>
+    <% form.text_field :user_id, id: :record_user_id %>
   </div>
 
   <div class="actions">
