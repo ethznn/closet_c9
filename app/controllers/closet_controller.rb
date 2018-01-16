@@ -16,13 +16,26 @@ class ClosetController < ApplicationController
   end
 
   def enrollment
-    @record = Record.new
-    @record.user_id = current_user.id
-    @record.memo = params[:memo]
-    @record.date_id = params[:date_id]
-    @record.date_data = params[:date_data]
-    @record.save
+    @record = Record.new(record_params)
 
-    redirect_to "/calendar"
+    respond_to do |format|
+      if @record.save
+        format.html { redirect_to "/", notice: 'Record was successfully created.' }
+        format.json { render :show, status: :created, location: @record }
+      else
+        format.html { render :new }
+        format.json { render json: @record.errors, status: :unprocessable_entity }
+      end
+    end
   end
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_record
+      @record = Record.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def record_params
+      params.require(:record).permit(:user_id, :memo, :image, :date_id, :date_data)
+    end
 end

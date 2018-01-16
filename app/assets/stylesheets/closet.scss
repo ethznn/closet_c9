@@ -88,16 +88,20 @@ section.calendar_page.container{
   padding-left: 0px;
 }
 
+// modal image 보여주기 관련
 .modal_image1{
   height: 20vh;
-  padding-right: 5px;
+  padding-right: 0px;
+  margin-bottom: 5px;
 }
 .modal_image2{
   height: 20vh;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 7.5px;
+  padding-right: 7.5px;
+  margin-bottom: 5px;
 }
 .modal_image0{
   height: 20vh;
-  padding-left: 5px;
+  padding-left: 0px;
+  margin-bottom: 5px;
 }
