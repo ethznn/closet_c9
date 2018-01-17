@@ -2,7 +2,7 @@
 
 <!--  데이터 존재 시에 보여주기 -->
 
-<%= form_for(Record.new, url: enrollment_path, html: {multipart: true}) do |record| %>
+<%= form_for(Record.new, url: records_path, html: {multipart: true}) do |record| %>
   <%= content_tag(:div, class: "modal fade", role: "dialog", id: "#{@date_id}", tabindex: "-1", :aria =>{:labelledby=>"exampleModalLabel",:hidden=>"true"}) do %>
     <%= content_tag(:div, class: "modal-dialog", role: "document") do %>
       <%= content_tag(:div, class:"modal-content") do %>

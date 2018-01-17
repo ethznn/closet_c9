@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   
   # calendar / modal 페이지 관련
   get '/calendar' => "closet#calendar"
-  # _modal record post
-  post 'enrollment' => "closet#enrollment"
   
-  # scaffold route 수정
-  resources :records, :except => [:show, :index, :create, :new]
+  # Record scaffold route
+  resources :records, :except => [:show, :index, :new]
   
   # users 관련 REST api
   devise_for :users
