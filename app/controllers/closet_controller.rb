@@ -15,20 +15,6 @@ class ClosetController < ApplicationController
     @user_record = Record.where(user_id: current_user.id)
   end
 
-  def enrollment
-    @record = Record.new(record_params)
-    authorize! :create, @record
-
-    respond_to do |format|
-      if @record.save
-        format.html { redirect_to "/", notice: 'Record was successfully created.' }
-        format.json { render :show, status: :created, location: @record }
-      else
-        format.html { render :new }
-        format.json { render json: @record.errors, status: :unprocessable_entity }
-      end
-    end
-  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_record

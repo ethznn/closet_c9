@@ -9,11 +9,11 @@ class Ability
       #권한 설정
       if user.nil?
         can :read, :all
-      if user.has_role? 'admin'
+      elsif user.has_role? 'admin'
         can [:read, :create, :update, :destroy], :all
       elsif user.has_role? 'manager'
-        can :destroy, Post, user_id: user.id
         can [:read, :create, :update], :all
+        can :destroy, Post, user_id: user.id
       else
         can [:read, :create], :all
         can [:update, :destroy], Record, user_id: user.id
