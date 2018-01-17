@@ -1,6 +1,6 @@
 class ClosetController < ApplicationController
   before_action :authenticate_user!, :except => [:index]
-
+  
   def index
     #로그인 되어있으면 calendar page로
     if current_user != nil
@@ -17,6 +17,7 @@ class ClosetController < ApplicationController
 
   def enrollment
     @record = Record.new(record_params)
+    authorize! :create, @record
 
     respond_to do |format|
       if @record.save

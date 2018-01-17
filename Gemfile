@@ -12,10 +12,15 @@ gem 'devise'
 # devise gem bootstrapped
 gem 'devise-bootstrap-views'
 
-#Gemfile
+# 권한 부여 및 역할, 등급
+gem 'cancancan'
+gem 'rolify'
+
+# s3 image Gemfile
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
