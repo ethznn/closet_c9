@@ -7,15 +7,15 @@ class Ability
     # user ||= User.new # guest user (not logged in)
       
       #권한 설정
-      if user.nil?
-        can :read, :all
-      elsif user.has_role? 'admin'
+      if user.nil?                                          # 로그인 전
+        can :read, :all                                     
+      elsif user.has_role? 'admin'                          # 관리자
         can [:read, :create, :update, :destroy], :all
-      elsif user.has_role? 'manager'
+      elsif user.has_role? 'manager'                        # 매니저 
         can [:read, :create, :update], :all
         can :destroy, Post, user_id: user.id
       else
-        can [:read, :create], :all
+        can [:read, :create], :all                          # 로그인 하고 일반 user
         can [:update, :destroy], Record, user_id: user.id
       end
       
