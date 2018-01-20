@@ -29,6 +29,17 @@
               <% else %>
                 <% block.call day, sorted_events.fetch(day, []) %>
               <% end %>
+              <%= content_tag(:div) do %>
+                <% @cal_data =  @user_record.where(date_id: @date_id)%>
+                <% @cal_data.each do |data| %>
+                  <% if data.image.url != nil %>
+                    <%= image_tag(data.image.url, style: "width: 2.2vh", alt: "index test") %>
+                  <% else %>
+                    <%= image_tag("noimage",style: "width: 2.2vh", alt: "no image") %>
+                  <% end %>
+                <% end %>
+              <% end %>
+              
             <% end %>
             
             <!-- modal 창 render -->
