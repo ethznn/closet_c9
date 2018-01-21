@@ -30,16 +30,23 @@
                 <% block.call day, sorted_events.fetch(day, []) %>
               <% end %>
               <%= content_tag(:div) do %>
+              
+                <!-- 각 td에 이미지 4개까지 불러오는 반복문  -->
                 <% @cal_data =  @user_record.where(date_id: @date_id)%>
-                <% @cal_data.each do |data| %>
+                <% count = 1 %>
+                <% @cal_data.each do |data| %>    
                   <% if data.image.url != nil %>
-                    <%= image_tag(data.image.url, style: "width: 2.2vh", alt: "index test") %>
+                    <%= image_tag(data.image.url, class: "td_images", alt: "image") %>
                   <% else %>
-                    <%= image_tag("noimage",style: "width: 2.2vh", alt: "no image") %>
+                    <%= image_tag("noimage", class: "td_images", alt: "no image") %>
+                  <% end %>
+                  <% count = count + 1 %>
+                  <% if count == 5 %>
+                    <% break %>
                   <% end %>
                 <% end %>
+                
               <% end %>
-              
             <% end %>
             
             <!-- modal 창 render -->
