@@ -70,7 +70,7 @@
             <% @user_record_data.each do |data| %>
               <% modal_image_css = modal_image_count % 3 %>
               <% if data.image.url != nil %>
-                <%= image_tag(data.image.url, class: "col-4 modal_image#{modal_image_css}", alt: "index test") %>
+                <%= image_tag(data.image.url, class: "col-4 modal_image#{modal_image_css}", alt: "image") %>
               <% else %>
                 <%= image_tag("noimage", class: "col-4 modal_image#{modal_image_css}", alt: "no image") %>
               <% end %>
