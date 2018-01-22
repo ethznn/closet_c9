@@ -19,16 +19,35 @@
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
-            
+          
             <!-- 각 day 마다 id 값 부여 -->
             <% @day = day %>
             <% @date_id = day.strftime("%y%m%d") %>
+            
             <%= content_tag :td, onClick: "location.href='#'", :class => calendar.td_classes_for(day), :data =>{:toggle=>"modal",:target=>"##{@date_id}"} do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
                 <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
               <% else %>
                 <% block.call day, sorted_events.fetch(day, []) %>
               <% end %>
+              
+              <!-- 각 td에 이미지 4개까지 불러오는 반복문  -->
+              <%= content_tag(:div) do %>
+                <% @cal_data =  @user_record.where(date_id: @date_id)%>
+                <% count = 1 %>
+                <% @cal_data.each do |data| %>    
+                  <% if data.image.url != nil %>
+                    <%= image_tag(data.image.url, class: "td_images", alt: "image") %>
+                  <% else %>
+                    <%= image_tag("noimage", class: "td_images", alt: "no image") %>
+                  <% end %>
+                  <% count = count + 1 %>
+                  <% if count == 5 %>
+                    <% break %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            
             <% end %>
             
             <!-- modal 창 render -->
