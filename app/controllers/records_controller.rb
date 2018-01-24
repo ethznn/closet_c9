@@ -20,7 +20,8 @@ class RecordsController < ApplicationController
   # GET /records/1/edit
   def edit
   end
-
+  
+  
   # POST /records
   # POST /records.json
   def create
