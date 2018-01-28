@@ -4,21 +4,25 @@ CLOSET
 > - 패션에 민감한 사람들을 위해서 그날 그날 입었던 옷을 저장하고 볼 수 있는 다이어리
 > - 더 나아가 자신의 패션을 공유하며 다른 사람들과 패션의 이야기를 주고 받을 수 있는 커뮤니티 
 
+> - master branch (production) / [closet.im](https://closet.im) Devise E-mail 인증 추가 후 오픈
+> - development branch (development) / 다른 EC2 서버에서 개발 진행 중
+
 Design
 ------
 
 ### Version
 
-> -	ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-linux]
+> -	ruby 2.5.0p0 (2017-12-25 revision 61468 [x86_64-linux]
 > -	Rails 5.1.4
 > -	Bootstrap v 4.0
-> -	web module local 'puma' => Amazon EC2 'ngnix'
+> -	web module Amazon EC2 'ngnix'
 > -	MySQL2
 
 ### DB
 
-> -	devise user info
-> -	[belongs_to user] record (resource)
+> -	Using MYSQL2
+> -	devise user info + add_nickname_to_user
+> -	[belongs_to user] record (modify scaffold)
 > 	-	사진 첨부 (Amazon S3) DB에 S3링크 저장 방식
 
 ### INSTANCE
